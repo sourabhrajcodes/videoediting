@@ -70,16 +70,9 @@
           var tag = document.createElement("span");
           tag.className = "card-tag";
           tag.textContent = v.tag;
-          var link = document.createElement("a");
-          link.className = "card-fallback-link";
-          link.href = v.id ? "https://drive.google.com/file/d/" + v.id + "/view" : "#";
-          link.target = "_blank";
-          link.rel = "noopener";
-          link.textContent = v.id ? "Open in Drive" : "Add Drive ID first";
           card.appendChild(wrap);
           card.appendChild(title);
           card.appendChild(tag);
-          card.appendChild(link);
           grid.appendChild(card);
         });
       }
