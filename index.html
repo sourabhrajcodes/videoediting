@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReelCuts — Video Editing for PH Realtors</title>
+  <meta name="description" content="Listing reels + motion graphics for PH realtors. You shoot on phone, we deliver in 48hrs." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Video Editing for PH Realtors Only</h1>
+    <p>Listing reels + motion graphics — you shoot on phone, we deliver in 48hrs.</p>
+    <a class="btn" href="#work">View work</a>
+  </header>
+
+  <main id="work">
+    <h2>Recent work</h2>
+    <div id="work-grid" class="grid"></div>
+  </main>
+
+  <footer>
+    <p>© 2026 ReelCuts for PH Realtors | IN Team</p>
+  </footer>
+
+  <script src="videos.js"></script>
+  <script>
+    (function () {
+      var grid = document.getElementById("work-grid");
+      (VIDEOS || []).forEach(function (v) {
+        var card = document.createElement("article");
+        card.className = "card";
+        var wrap = document.createElement("div");
+        wrap.className = "frame-wrap";
+        if (v.id.indexOf("REPLACE_") === 0) {
+          var note = document.createElement("p");
+          note.className = "unavailable-note";
+          note.textContent = "Video unavailable — replace Drive ID in videos.js (set sharing to Anyone with link).";
+          wrap.appendChild(note);
+        } else {
+          var frame = document.createElement("iframe");
+          frame.src = "https://drive.google.com/file/d/" + v.id + "/preview";
+          frame.setAttribute("loading", "lazy");
+          frame.setAttribute("allow", "autoplay; fullscreen");
+          frame.setAttribute("title", v.title);
+          wrap.appendChild(frame);
+        }
+        var title = document.createElement("h3");
+        title.className = "card-title";
+        title.textContent = v.title;
+        var tag = document.createElement("span");
+        tag.className = "card-tag";
+        tag.textContent = v.tag;
+        var link = document.createElement("a");
+        link.className = "card-fallback-link";
+        link.href = "https://drive.google.com/file/d/" + v.id + "/view";
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.textContent = "Open in Drive";
+        card.appendChild(wrap);
+        card.appendChild(title);
+        card.appendChild(tag);
+        card.appendChild(link);
+        grid.appendChild(card);
+      });
+    })();
+  </script>
+</body>
+</html>
