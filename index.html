@@ -57,12 +57,30 @@
             note2.textContent = v.title + " — replace ID in videos.js";
             wrap.appendChild(note2);
           } else {
-            var frame = document.createElement("iframe");
-            frame.src = "https://drive.google.com/file/d/" + v.id + "/preview";
-            frame.setAttribute("loading", "lazy");
-            frame.setAttribute("allow", "autoplay; fullscreen");
-            frame.setAttribute("title", v.title);
-            wrap.appendChild(frame);
+            wrap.className = "frame-wrap facade";
+            var thumb = document.createElement("img");
+            thumb.className = "thumb-img";
+            thumb.src = "https://drive.google.com/thumbnail?id=" + v.id + "&sz=w640";
+            thumb.setAttribute("loading", "lazy");
+            thumb.setAttribute("alt", v.title);
+            wrap.appendChild(thumb);
+            var play = document.createElement("button");
+            play.className = "play-btn";
+            play.setAttribute("aria-label", "Play " + v.title);
+            play.textContent = "▶";
+            wrap.appendChild(play);
+            wrap.onclick = (function (id, title) {
+              return function () {
+                wrap.innerHTML = "";
+                wrap.className = "frame-wrap";
+                var frame = document.createElement("iframe");
+                frame.src = "https://drive.google.com/file/d/" + id + "/preview";
+                frame.setAttribute("allow", "autoplay; fullscreen");
+                frame.setAttribute("title", title);
+                frame.setAttribute("allowfullscreen", "");
+                wrap.appendChild(frame);
+              };
+            })(v.id, v.title);
           }
           var title = document.createElement("h3");
           title.className = "card-title";
