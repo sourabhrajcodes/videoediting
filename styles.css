@@ -4,8 +4,12 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial
 .hero h1 { margin: 0 0 12px; font-size: 28px; line-height: 1.2; }
 .hero p { margin: 0 0 20px; opacity: 0.85; }
 .btn { display: inline-block; padding: 12px 22px; background: #25d366; color: #062b16; font-weight: 700; text-decoration: none; border-radius: 8px; }
-#work { padding: 28px 16px 48px; max-width: 1100px; margin: 0 auto; }
-#work h2 { margin: 0 0 16px; font-size: 22px; }
+#work { padding: 28px 16px 48px; max-width: 1200px; margin: 0 auto; }
+#work h2 { margin: 0 0 12px; font-size: 22px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.filter-btn { padding: 8px 16px; border: 1px solid #e5e5e5; background: #fff; border-radius: 999px; font-size: 13px; cursor: pointer; color: #444; }
+.filter-btn:hover { background: #f1f1f1; }
+.filter-btn.active { background: #0f0f0f; color: #fff; border-color: #0f0f0f; }
 .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 .card { border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; background: #fff; }
 .frame-wrap { aspect-ratio: 9 / 16; background: #000; }
@@ -14,6 +18,7 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial
 .card-tag { display: inline-block; margin: 0 12px 8px; font-size: 12px; background: #f1f1f1; border-radius: 999px; padding: 4px 10px; }
 .card-fallback-link { display: inline-block; margin: 0 12px 14px; font-size: 13px; color: #0b57d0; }
 .unavailable-note { color: #fff; padding: 40px 16px; text-align: center; font-size: 14px; }
+.empty-id-note { color: #fff; padding: 40px 16px; text-align: center; font-size: 14px; background: #1a1a1a; }
 footer { text-align: center; padding: 20px; color: #666; font-size: 13px; border-top: 1px solid #eee; }
 @media (min-width: 700px) { .grid { grid-template-columns: repeat(2, 1fr); } .hero h1 { font-size: 36px; } }
 @media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); } }

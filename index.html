@@ -16,54 +16,103 @@
 
   <main id="work">
     <h2>Recent work</h2>
+    <div id="filters" class="filters"></div>
     <div id="work-grid" class="grid"></div>
     <noscript><p>Enable JavaScript to view the work grid. Open videos directly in Google Drive.</p></noscript>
   </main>
 
   <footer>
-    <p>© 2026 ReelCuts for PH Realtors | IN Team</p>
+    <p>&copy; 2026 ReelCuts for PH Realtors | IN Team</p>
   </footer>
 
   <script src="videos.js"></script>
   <script>
     (function () {
       var grid = document.getElementById("work-grid");
-      (VIDEOS || []).forEach(function (v) {
-        var card = document.createElement("article");
-        card.className = "card";
-        var wrap = document.createElement("div");
-        wrap.className = "frame-wrap";
-        if (v.id.indexOf("REPLACE_") === 0) {
-          var note = document.createElement("p");
-          note.className = "unavailable-note";
-          note.textContent = "Video unavailable — replace Drive ID in videos.js (set sharing to Anyone with link).";
-          wrap.appendChild(note);
-        } else {
-          var frame = document.createElement("iframe");
-          frame.src = "https://drive.google.com/file/d/" + v.id + "/preview";
-          frame.setAttribute("loading", "lazy");
-          frame.setAttribute("allow", "autoplay; fullscreen");
-          frame.setAttribute("title", v.title);
-          wrap.appendChild(frame);
-        }
-        var title = document.createElement("h3");
-        title.className = "card-title";
-        title.textContent = v.title;
-        var tag = document.createElement("span");
-        tag.className = "card-tag";
-        tag.textContent = v.tag;
-        var link = document.createElement("a");
-        link.className = "card-fallback-link";
-        link.href = "https://drive.google.com/file/d/" + v.id + "/view";
-        link.target = "_blank";
-        link.rel = "noopener";
-        link.textContent = "Open in Drive";
-        card.appendChild(wrap);
-        card.appendChild(title);
-        card.appendChild(tag);
-        card.appendChild(link);
-        grid.appendChild(card);
+      var filtersEl = document.getElementById("filters");
+      var data = (typeof VIDEOS !== "undefined") ? VIDEOS : [];
+
+      function uniqueTags(list) {
+        var tags = {};
+        list.forEach(function (v) { if (v.tag) tags[v.tag] = 1; });
+        return Object.keys(tags).sort();
+      }
+
+      function buildCards(filter) {
+        grid.innerHTML = "";
+        var items = filter === "All" ? data : data.filter(function (v) { return v.tag === filter; });
+        items.forEach(function (v) {
+          var card = document.createElement("article");
+          card.className = "card";
+          var wrap = document.createElement("div");
+          wrap.className = "frame-wrap";
+          if (!v.id) {
+            var note = document.createElement("p");
+            note.className = "empty-id-note";
+            note.textContent = v.title + " — paste Drive ID in videos.js";
+            wrap.appendChild(note);
+          } else if (v.id.indexOf("REPLACE_") === 0) {
+            var note2 = document.createElement("p");
+            note2.className = "unavailable-note";
+            note2.textContent = v.title + " — replace ID in videos.js";
+            wrap.appendChild(note2);
+          } else {
+            var frame = document.createElement("iframe");
+            frame.src = "https://drive.google.com/file/d/" + v.id + "/preview";
+            frame.setAttribute("loading", "lazy");
+            frame.setAttribute("allow", "autoplay; fullscreen");
+            frame.setAttribute("title", v.title);
+            wrap.appendChild(frame);
+          }
+          var title = document.createElement("h3");
+          title.className = "card-title";
+          title.textContent = v.title;
+          var tag = document.createElement("span");
+          tag.className = "card-tag";
+          tag.textContent = v.tag;
+          var link = document.createElement("a");
+          link.className = "card-fallback-link";
+          link.href = v.id ? "https://drive.google.com/file/d/" + v.id + "/view" : "#";
+          link.target = "_blank";
+          link.rel = "noopener";
+          link.textContent = v.id ? "Open in Drive" : "Add Drive ID first";
+          card.appendChild(wrap);
+          card.appendChild(title);
+          card.appendChild(tag);
+          card.appendChild(link);
+          grid.appendChild(card);
+        });
+      }
+
+      var tags = uniqueTags(data);
+      var activeFilter = "All";
+
+      var allBtn = document.createElement("button");
+      allBtn.className = "filter-btn active";
+      allBtn.textContent = "All (" + data.length + ")";
+      allBtn.onclick = function () { setActive("All"); };
+      filtersEl.appendChild(allBtn);
+
+      tags.forEach(function (t) {
+        var count = data.filter(function (v) { return v.tag === t; }).length;
+        var btn = document.createElement("button");
+        btn.className = "filter-btn";
+        btn.textContent = t + " (" + count + ")";
+        btn.onclick = function () { setActive(t); };
+        filtersEl.appendChild(btn);
       });
+
+      function setActive(tag) {
+        activeFilter = tag;
+        var btns = filtersEl.querySelectorAll(".filter-btn");
+        btns.forEach(function (b) {
+          var label = b.textContent.split(" (")[0];
+          b.className = "filter-btn" + (label === tag ? " active" : "");
+        });
+        buildCards(tag);
+      }
+
+      buildCards("All");
     })();
   </script>
 </body>
