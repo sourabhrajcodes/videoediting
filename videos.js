@@ -1,7 +1,6 @@
 // All 35 videos wired from Drive folder "video edit" (Anyone with link).
 // Embed: https://drive.google.com/file/d/<id>/preview
 const VIDEOS = [
-  { id: "1GIgBcVAAeVQAE33DAkoOIRJ5iraB_1E4", title: "Reel 01", tag: "Reel" },
   { id: "18kK1xF7hT64k7F0gd5TWLPKQQQ_TtX4Q", title: "Reel 02", tag: "Reel" },
   { id: "13v-63Tu9HVm_dORtJN5PPe0NHBxeUZrU", title: "Reel 03", tag: "Reel" },
   { id: "1embAbKycW_VT-vfSHCXRKGC_KFSsHKGr", title: "Finance Ad — 401K", tag: "Ad" },
