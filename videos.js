@@ -7,7 +7,6 @@ const VIDEOS = [
   { id: "1pUm43wwx0lBLBLjzIwdPp3ZGz50nLeGq", title: "Coca-Cola Brand Film", tag: "Branding" },
   { id: "1cvlFQK1PKGGFL06g-boMP7m9MOg8d-pL", title: "Reel 05", tag: "Reel" },
   { id: "1QK_PrEUSKrx7rR1Uk3o80bqQQy41Vy5O", title: "Motion Design 01", tag: "Motion Graphics" },
-  { id: "1Mb9orowPdPBIdxvdpEnxTDaA3eLvJfoh", title: "Reel 06", tag: "Reel" },
   { id: "1HvlaWk3FGWopL1GKwlUnQ07VVVivEJrW", title: "Reel 07", tag: "Reel" },
   { id: "1Z5RHGECUIUvj35ZmnsBEbBmERkeW5_RR", title: "Reel 08", tag: "Reel" },
   { id: "1ER7w5SV9R5bSw878LPv0nApvMMJSubqY", title: "Reel 09", tag: "Reel" },
