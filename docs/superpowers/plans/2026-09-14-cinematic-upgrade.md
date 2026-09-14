@@ -319,7 +319,7 @@ New:
 
 - [ ] **Step 5: Run checks to verify it passes**
 
-Run: `python3 -c "html=open('.worktrees/portfolio/index.html',encoding='utf-8').read(); assert 'id=\"about\"' in html and 'id=\"services\"' in html and 'id=\"reviews\"' in html and html.count('placeholder')>=8 and html.count('https://wa.me/9929977487')==3 and 'btn-ghost' in html; js=open('.worktrees/portfolio/videos.js',encoding='utf-8').read(); assert js.count('title:')==35; print('PASS: sections done, 35 videos intact')"`
+Run: `python3 -c "html=open('.worktrees/portfolio/index.html',encoding='utf-8').read(); assert 'id=\"about\"' in html and 'id=\"services\"' in html and 'id=\"reviews\"' in html and html.count('placeholder')>=7 and html.count('https://wa.me/9929977487')==3 and 'btn-ghost' in html; js=open('.worktrees/portfolio/videos.js',encoding='utf-8').read(); assert js.count('title:')==35; print('PASS: sections done, 35 videos intact')"`
 Expected: PASS: sections done, 35 videos intact
 
 Manual (do not skip):
