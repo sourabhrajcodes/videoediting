@@ -5,7 +5,6 @@ const VIDEOS = [
   { id: "13v-63Tu9HVm_dORtJN5PPe0NHBxeUZrU", title: "Reel 03", tag: "Reel" },
   { id: "1embAbKycW_VT-vfSHCXRKGC_KFSsHKGr", title: "Finance Ad — 401K", tag: "Ad" },
   { id: "1pUm43wwx0lBLBLjzIwdPp3ZGz50nLeGq", title: "Coca-Cola Brand Film", tag: "Branding" },
-  { id: "1fGWh1k_ZHY1FHMPxn5hdRXzdtYJAzkcS", title: "Reel 04", tag: "Reel" },
   { id: "1cvlFQK1PKGGFL06g-boMP7m9MOg8d-pL", title: "Reel 05", tag: "Reel" },
   { id: "1QK_PrEUSKrx7rR1Uk3o80bqQQy41Vy5O", title: "Motion Design 01", tag: "Motion Graphics" },
   { id: "1uxHnYv-8U69Bp1kX0pHiXVpf-cy-Rwrd", title: "Motion Design 02", tag: "Motion Graphics" },
