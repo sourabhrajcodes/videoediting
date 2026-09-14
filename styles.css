@@ -24,3 +24,4 @@ body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial
 footer { text-align: center; padding: 20px; color: #666; font-size: 13px; border-top: 1px solid #eee; }
 @media (min-width: 700px) { .grid { grid-template-columns: repeat(2, 1fr); } .hero h1 { font-size: 36px; } }
 @media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+.wa-float { position: fixed; right: 16px; bottom: 16px; width: 56px; height: 56px; border-radius: 50%; background: #25d366; color: #fff; font-size: 26px; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 50; }
