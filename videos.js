@@ -14,7 +14,6 @@ const VIDEOS = [
   { id: "1XzPwoUEj5JtVpwSlU34QM4cZ-_FeqctV", title: "Motion Comp 01", tag: "Motion Graphics" },
   { id: "1AIZ8f_fGdF9VfEYfiDLEL-AgyGtW4GnN", title: "Infotik Brand Ad", tag: "Ad" },
   { id: "1WmbIGOloiO3qKvyaftvvnDsxL7uKU6ad", title: "Motion Comp 02", tag: "Motion Graphics" },
-  { id: "1vEtxXISF8BjXnnHA2Fje-kxvOMVZkKJR", title: "QA Wolf Product Ad", tag: "Ad" },
   { id: "1WS8b0k1jY3Alvnhzb_PgSomC4GnaQCnf", title: "Quadratic Explainer", tag: "Explainer" },
   { id: "1LbFx-192OoH5HmylO7gQdYmyeYfAWr3B", title: "Reel 12", tag: "Reel" },
   { id: "1LiZ8CnNsagxwiHsEHiCZ-L9oMqOl2iDg", title: "Reel 13", tag: "Reel" },
