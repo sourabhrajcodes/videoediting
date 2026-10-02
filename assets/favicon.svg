@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- PlixMedia tab mark: the blue of the published design with a play
+       triangle for the cut. favicon.ico and apple-touch-icon.png are drawn
+       from the same geometry, so change all three together. -->
+  <rect x="1" y="1" width="98" height="98" rx="23" fill="#0071e3"/>
+  <path d="M40 31.5 40 68.5 70.5 50 Z" fill="#ffffff" stroke="#ffffff" stroke-width="7" stroke-linejoin="round"/>
+</svg>

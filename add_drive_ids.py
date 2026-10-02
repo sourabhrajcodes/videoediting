@@ -8,7 +8,7 @@ Press Enter to skip a video (leave blank).
 import re
 import sys
 
-FILE = "videos.js"
+FILE = "js/videos.js"
 
 def extract_id(link):
     link = link.strip()
